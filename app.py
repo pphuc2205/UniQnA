@@ -49,6 +49,10 @@ def get_conversation_chain(vectorstore):
         repo_id="bigscience/bloom",
         model_kwargs={"temperature": 0.5, "max_length": 512}
     )
+    
+    # memory = ConversationBufferMemory()
+    # memory.chat_memory.add_user_message("xin chào")
+    # memory.chat_memory.add_ai_message("xin chào tôi có thể giúp gì cho bạn?")
 
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
